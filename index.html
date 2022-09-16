@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD App with JS and HTML5 LocalStorage</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="shortcut icon" type="image/png" href="img/leito.jpg"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Products</title>
+
+</head>
+
+<body>
+
+<!-- This is the main body<div> container section -->
+<div class="container-fluid">
+
+    <!-- firstPart: handles the floating button counter-->
+    <div class="fixed-action-btn vertical counter">
+        <a id="counter" class="counterItems btn-floating btn-large red darken-2">0<i class="fa fa-bars fa-4x"></i></a>
+    </div>
+	
+    <!-- 2ndPart: handles the ProductDashboard display -->
+    <div class="mx-auto">
+        <div class="card  rounded border-white product">
+            <div class="card-header" id="usernameSpan">
+                <h3 id="h3header">Products Items</h3>
+                <button class="btn btn-outline-success btn-sm m-3 addNewProduct pull-right" id="addNewProduct"
+                        data-toggle="modal" data-target="#addNewProductModal" >Add New Product
+                </button>
+            </div>
+            <div class="card-body text-dark" id="productDashboard">
+                <h4 class="card-title"> Products List</h4>
+
+                <ul class="list-group" id="productDisplay">
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+	
+    <!-- 3rdPart: responds to the main modal call -->
+    <div class="modal fade" id="addNewProductModal" tabindex="-1" role="dialog"
+         aria-labelledby="addNewProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header for the modal -->
+                <div class="modal-header">                   
+                    <h4 class="modal-title left" id="addNewProductModalLabel">New Item</h4>
+                </div>
+                <!-- body of the modal -->
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="modalForm">              
+                        <div class="form-group">
+                         <input type='file' id="itemInput" accept="image/x-png,image/gif,image/jpeg"  />
+                            <canvas class="canvasImg" id="itemImage"></canvas>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">item Description</label>
+                            <textarea id="productDescription" maxlength="300"  rows="5"></textarea>
+                        </div>
+                        <div class="modal-footer align-content-center" id="modalFooter">
+                            <button type="button" class="btn btn-outline-danger btn-sm m-2" data-dismiss="modal"
+                                    id="modalClose"onclick="productFormReset()"><i class="fa fa-close"></i> Close
+                            </button>
+                            <button type="button" class="btn btn-outline-success btn-sm m-2" id="modalSubmit"><i
+                                    class="fa fa-save"></i> Add Product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>		
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+		crossorigin="anonymous"></script>		
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/index.js"></script>
+
+
+</body>
+
+</html>
